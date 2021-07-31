@@ -10,7 +10,7 @@ const upload=require('../middle/upload')
 router.get('/',[auth.checklogin],async function(req, res, next){
     const items= await itemController.get()
     const type=await typeController.get()
-
+    
    console.log(items,type)
     res.render('item', {
         item: items,
