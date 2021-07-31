@@ -19,6 +19,7 @@ router.get('/', [auth.checklogin], function (req, res, next) {
 //login
 router.get('/login', function (req, res, next) {
   res.render('index', { title: 'Login' });
+  console.log("a")
 });
 
 // Post login page
