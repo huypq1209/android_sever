@@ -10,7 +10,7 @@ require('./models/userModel')
 require('./models/typeModel')
 require('./models/itemModel')
 
-
+     
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
