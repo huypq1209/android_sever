@@ -10,7 +10,9 @@ var items = [
 const itemModel= require('../models/itemModel')
 // select * from items
 exports.get = async function getAllitem() {
+   
    return await itemModel.find()
+   
 }
 
 // select * from items where id=?
@@ -21,10 +23,18 @@ exports.getOne = async function getOneitem(id) {
 exports.delete = async(id) => {
    await itemModel.remove({_id:id})
 };
-exports.update = (st) => {
-   items = items.map(item => item.id == st.id ? {
-      ...item, name: st.name, price: st.price, date: st.date, type: st.type, img: st.img ? st.img : item.img, chitiet: st.chitiet
-   } : item)
+exports.update = async (st) => {
+   let oneitem =await itemModel.findById(st.id)
+   if (oneitem){
+      oneitem.name = st.name
+      oneitem.price = st.price
+      oneitem.date = st.date
+      oneitem.type = st.type
+      oneitem.img = st.img ? st.img : oneitem.img
+      oneitem.chitiet = st.name
+      await oneitem.save()
+   }
+   
 }
 exports.insert = async (st) => {
    const item = new itemModel(st)

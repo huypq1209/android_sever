@@ -11,10 +11,10 @@ exports.getOne = async function getOneitem(id){
 exports.delete = async (id)=>{
    await itemService.delete(id);
 }
-exports.update = (params,body)=>{
+exports.update = async (params,body)=>{
     let {id}=params;
     let {name,price,date,type,img,chitiet}=body;
-    itemService.update({id, name, price, date, type,img,chitiet})
+    await itemService.update({id, name, price, date, type,img,chitiet})
 
 }
 exports.insert = async (body)=>{
