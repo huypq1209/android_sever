@@ -15,6 +15,7 @@ require('./models/itemModel')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var itemRouter= require('./routes/item');
+var item_apiRouter= require('./routes/item_api')
 
 
 
@@ -80,6 +81,7 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/items',itemRouter)
+app.use('/api',item_apiRouter)
 
 
 

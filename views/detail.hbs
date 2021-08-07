@@ -6,7 +6,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/items">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-database"></i>
                 </div>
@@ -167,7 +167,7 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
+                        {{!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
@@ -280,7 +280,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li>
+                        </li> --}}
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -470,7 +470,7 @@
 
                             <div>
                                 <span>Thể loại: </span>
-                                <select class="mdb-select md-form mb-4 initialized mt-2" id="select" name="type">
+                                <select class="browser-default custom-select mb-4 initialized mt-2" id="select" name="type">
                                     {{#each type}}
                                     {{#if (soSanh this._id ../item.type )}}
                                     <option selected value="{{this._id}}">{{this.name}}</option>
