@@ -9,8 +9,8 @@ const users=[
 exports.login= async function login(username){
     // const user = users.filter(us => us.username == username)[0]||null
     //select username,password from users where username = username
-    const user = await userModel.findOne({username:username},'username password')
-    console.log(user.username)
+    const user = await userModel.findOne({username:username},'_id username password')
+    
     
     return user
 }

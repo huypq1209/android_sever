@@ -23,7 +23,7 @@ require('dotenv').config()
 var app = express();
 mongoose.connect(process.env.MONGODB,{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>console.log(">>>>>oK"))
-.catch((err)=>console.log(">>>>>>>>>",err))
+.catch((err)=>{})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

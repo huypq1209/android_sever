@@ -137,8 +137,8 @@ const onchangeImg = () => {
         () => {
             uploadTask.snapshot.ref.getDownloadURL().then((url) => {
                 console.log(url)
-                document.getElementById("itemImg").src = url? url : '/images/no_img.png'
-                document.getElementById("imgurl").value = url? url : '/images/no_img.png'
+                document.getElementById("itemImg").src = url
+                document.getElementById("imgurl").value = url
             })
         }
     )

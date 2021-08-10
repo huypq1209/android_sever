@@ -1,0 +1,13 @@
+<script>
+    var socket = io()
+    socket.on('server_msg',(msg)=>{
+        console.log(msg)
+    })
+    const Send = ()=>{
+        let msg= document.getElementById("msg").value;
+        socket.emit('new_message',msg)
+    }
+</script>
+
+<input type="text" id="msg" name="msg">
+<button onclick="Send()">send</button>

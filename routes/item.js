@@ -4,6 +4,7 @@ var itemController= require('../controllers/item')
 var typeController= require('../controllers/type')
 const auth= require('../middle/auth')
 const upload=require('../middle/upload')
+const socketAPI = require('../socketIO/socket_api')
 
 // lay list sanpham
 // middleware
@@ -11,7 +12,7 @@ router.get('/',[auth.checklogin],async function(req, res, next){
     const items= await itemController.get()
     const type=await typeController.get()
     
-   console.log(items,type)
+   
     res.render('item', {
         item: items,
         type: type,
@@ -52,6 +53,8 @@ router.post('/update/:id',[auth.checklogin, upload.single('img')],async function
 router.post('/insert',[auth.checklogin],async function(req, res, next){
     let{body}=req
     await itemController.insert(body)
+  socketAPI.sendNofication('+1 item')
+
     res.redirect('/items')
 });
 module.exports = router
