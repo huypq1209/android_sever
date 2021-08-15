@@ -9,6 +9,8 @@ const mongoose=require('mongoose');
 require('./models/userModel')
 require('./models/typeModel')
 require('./models/itemModel')
+require('./models/guestModel')
+require('./models/billModel')
 
      
 
@@ -16,6 +18,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var itemRouter= require('./routes/item');
 var item_apiRouter= require('./routes/item_api')
+var billRouter= require('./routes/bill');
 
 
 
@@ -31,6 +34,7 @@ app.set('view engine', 'hbs');
 
 var hbs= require('hbs');
 const { error } = require('console');
+
 hbs.registerHelper('soSanh',function(a,b,t){
   return a.toString() == b.toString();
 
@@ -47,6 +51,14 @@ hbs.registerHelper('formatDate',function(a,t){
 
 hbs.registerHelper('getTypeName',function(typeid,type,t){
   return type.filter(item=>item._id.toString()==typeid.toString())[0].name
+
+})
+hbs.registerHelper('getGuestName',function(guestid,guest,t){
+  return guest.filter(item=>item._id.toString()==guestid.toString())[0].fullname
+
+})
+hbs.registerHelper('getGuestPhone',function(guestid,guest,t){
+  return guest.filter(item=>item._id.toString()==guestid.toString())[0].phone
 
 })
 hbs.registerHelper('itemNumber',function(value,t){
@@ -82,6 +94,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/items',itemRouter)
 app.use('/api',item_apiRouter)
+app.use('/bills',billRouter)
 
 
 

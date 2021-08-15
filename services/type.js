@@ -10,3 +10,6 @@ const typeModel=require('../models/typeModel')
 exports.get = async function(){
         return await typeModel.find();
 }
+exports.getOne = async function(id){
+        return await typeModel.findById(id);
+}
