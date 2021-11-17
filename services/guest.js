@@ -34,3 +34,8 @@ exports.getOne = async function getOneitem(id) {
     }
     
  }
+ exports.get = async function getAllitem() {
+   
+    return await guestModel.find()
+    
+ }

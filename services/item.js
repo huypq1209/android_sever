@@ -17,7 +17,7 @@ exports.get = async function getAllitem() {
 
 // select * from items where id=?
 exports.getOne = async function getOneitem(id) {
-   return itemModel.findById(id)
+   return await itemModel.findById(id)
 }
 // delete
 exports.delete = async(id) => {

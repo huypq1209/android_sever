@@ -60,3 +60,6 @@ exports.update = async (params,body)=>{
 exports.getOne = async function getOneitem(id){
         return await guestService.getOne(id)
     }
+exports.get = async function getAll(){
+    return await guestService.get()
+}
