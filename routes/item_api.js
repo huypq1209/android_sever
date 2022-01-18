@@ -169,10 +169,14 @@ router.post('/bills/insert', async function (req, res, next) {
 
   res.json({ status: true, bill })
 })
+
+
+
 router.delete('/bills/delete/:id', async function (req, res, next) {
   const { params: { id } } = req
   await billController.delete(id)
   
+
   res.json({ result: true })
 });
 module.exports = router
